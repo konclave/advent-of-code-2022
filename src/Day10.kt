@@ -1,31 +1,27 @@
-import kotlin.math.abs
-
 fun main() {
     fun solve1(input: List<String>): Int {
         var total = 0
-        val ticks = listOf( 20, 60, 100, 140, 180, 220)
-        input.flatMap { it.split(" ") }.foldIndexed(1) {
-            i, acc, str ->
-                var res = acc
-                when (str) {
-                    "noop", "addx" -> {}
-                    else -> {
-                        res = acc + str.toInt()
-                    }
+        val ticks = listOf(20, 60, 100, 140, 180, 220)
+        input.flatMap { it.split(" ") }.foldIndexed(1) { i, acc, str ->
+            var res = acc
+            when (str) {
+                "noop", "addx" -> {}
+                else -> {
+                    res = acc + str.toInt()
                 }
-                if (ticks.contains(i + 1)) {
-                    val strength = (i + 1) * acc
-                    total += strength
-                }
-                res
+            }
+            if (ticks.contains(i + 1)) {
+                val strength = (i + 1) * acc
+                total += strength
+            }
+            res
         }
         return total
     }
 
     fun solve2(input: List<String>) {
         val screen: MutableList<String> = mutableListOf()
-        input.flatMap { it.split(" ") }.foldIndexed(1) {
-                i, acc, str ->
+        input.flatMap { it.split(" ") }.foldIndexed(1) { i, acc, str ->
             var res = acc
             when (str) {
                 "noop", "addx" -> {}
@@ -37,7 +33,7 @@ fun main() {
             screen.add(if (isBeamInPixel) "#" else ".")
             res
         }
-        screen.chunked(40).map {it.joinToString("")}.forEach { println(it)}
+        screen.chunked(40).map { it.joinToString("") }.forEach { println(it) }
     }
 
     val input = readInput("Day10")
