@@ -57,7 +57,7 @@ fun main() {
         }
 
         private fun getNextMonkeyId(worryLevel: Long): Int {
-            return if (worryLevel % this.testNum.toInt() == 0L) this.testTrueMonkeyId else this.testFalseMonkeyId
+            return if (worryLevel % this.testNum == 0L) this.testTrueMonkeyId else this.testFalseMonkeyId
         }
 
         private fun inspect(): Long {
