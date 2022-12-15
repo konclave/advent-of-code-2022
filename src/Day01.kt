@@ -4,10 +4,7 @@ fun main() {
             .joinToString("\n")
             .split("\n\n")
             .map{ chunk ->
-                chunk
-                    .split("\n")
-                    .map{ it.toInt() }
-                    .sum()
+                chunk.split("\n").sumOf { it.toInt() }
             }
             .max()
     }
